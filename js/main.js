@@ -26,16 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
       {u:"LindsayP",a:"L",bg:"#5b6abf",t:"The price per serving breakdown is so helpful!",time:"2h"},
       {u:"KarenS",a:"K",bg:"#fb923c",t:"$13.98 for that much chicken? Going today",time:"5h"}
     ]},
-    { id:5, title:"Best cleaning products at Sam's Club", author:"@DanaCleans", av:"D", abg:"#f97316", bg:"linear-gradient(160deg,#f97316,#eab308)", dur:"0:55", views:"15.8K", likes:567, comments:[
+    { id:5, title:"Best cleaning products at Sam's Club", author:"@DanaCleans", av:"D", abg:"#f97316", bg:"#1a1a1a", src:"images/moment5.mp4", dur:"0:55", views:"15.8K", likes:567, comments:[
       {u:"AmyH",a:"A",bg:"#3b82f6",t:"The Member's Mark cleaning wipes are underrated!",time:"1h"},
       {u:"BethR",a:"B",bg:"#a855f7",t:"Finally someone talks about the laundry pods",time:"3h"},
       {u:"TomW",a:"T",bg:"#22c55e",t:"Do they still carry the floor cleaner you mentioned?",time:"4h"}
     ]},
-    { id:6, title:"Tire change at Sam's - how fast is it really?", author:"@TonyDrives", av:"T", abg:"#a855f7", bg:"linear-gradient(160deg,#a855f7,#ec4899)", dur:"0:38", views:"9.2K", likes:234, comments:[
+    { id:6, title:"Tire change at Sam's - how fast is it really?", author:"@TonyDrives", av:"T", abg:"#a855f7", bg:"#1a1a1a", src:"images/moment6.mp4", dur:"0:38", views:"9.2K", likes:234, comments:[
       {u:"JasonM",a:"J",bg:"#f43f5e",t:"30 minutes?! That's faster than my usual place",time:"45m"},
       {u:"MelissaG",a:"M",bg:"#5b6abf",t:"What brand tires did you go with?",time:"2h"}
     ]},
-    { id:7, title:"Making dinner with only Sam's Club finds", author:"@LisaCooks", av:"L", abg:"#fb923c", bg:"linear-gradient(160deg,#fb923c,#f87171)", dur:"1:15", views:"31.5K", likes:1243, comments:[
+    { id:7, title:"Making dinner with only Sam's Club finds", author:"@LisaCooks", av:"L", abg:"#fb923c", bg:"#1a1a1a", src:"images/moment7.mp4", dur:"1:15", views:"31.5K", likes:1243, comments:[
       {u:"PaulC",a:"P",bg:"#3b82f6",t:"That salmon recipe is going straight to my list",time:"20m"},
       {u:"EmmaK",a:"E",bg:"#ec4899",t:"My family would LOVE this",time:"1h"},
       {u:"DanielR",a:"D",bg:"#22c55e",t:"You make cooking look so easy!",time:"2h"},
