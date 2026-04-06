@@ -317,6 +317,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   searchInp?.addEventListener('keypress', e => { if (e.key === 'Enter') searchBtn?.click(); });
 
+  /* ---------- PRELOAD VIDEO THUMBNAILS (mobile fix) ---------- */
+  document.querySelectorAll('.mcard-video').forEach(vid => {
+    // Force first frame load on mobile by setting currentTime
+    vid.addEventListener('loadeddata', () => { vid.currentTime = 0.1; }, {once:true});
+    // Fallback: try to trigger load
+    vid.load();
+  });
+
   /* ---------- DEPT BUTTON ---------- */
   document.querySelector('.sc-dept-btn')?.addEventListener('click', () => {
     alert('All Departments\n\n(Add dropdown menu here)');
