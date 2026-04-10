@@ -410,6 +410,23 @@ body.dark-mode .demo-overlay-card{background:#222}
 body.dark-mode .demo-overlay-card h2{color:#fff}
 body.dark-mode .demo-overlay-card p{color:#aaa}
 
+/* ---- TOAST NOTIFICATIONS ---- */
+.toast-container{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:5000;display:flex;flex-direction:column-reverse;gap:8px;pointer-events:none;width:100%;max-width:400px;padding:0 16px}
+.toast{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 6px 24px rgba(0,0,0,.15),0 1px 4px rgba(0,0,0,.08);pointer-events:auto;transform:translateY(20px);opacity:0;transition:all .3s ease}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.hide{transform:translateY(20px);opacity:0}
+.toast-img{width:40px;height:40px;border-radius:8px;object-fit:contain;background:var(--gray-5);flex-shrink:0}
+.toast-img-placeholder{display:flex;align-items:center;justify-content:center;background:var(--blue-light)}
+.toast-text{flex:1;min-width:0;font-size:13px;color:var(--gray-140);line-height:1.3}
+.toast-text strong{display:block;font-size:13px;color:var(--gray-160);margin-bottom:1px}
+.toast-view{flex-shrink:0;background:none;border:none;color:var(--blue);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);padding:4px 0}
+.toast-view:hover{text-decoration:underline}
+body.dark-mode .toast{background:#2a2a2a;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+body.dark-mode .toast-text{color:#bbb}
+body.dark-mode .toast-text strong{color:#fff}
+body.dark-mode .toast-img{background:#333}
+body.dark-mode .toast-img-placeholder{background:#1e3a5f}
+
 /* ---- CHECKOUT PAGE ---- */
 .checkout-page{position:fixed;inset:0;z-index:3000;background:#fff;overflow-y:auto;animation:demoFadeIn .2s ease}
 .checkout-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--gray-20);position:sticky;top:0;background:#fff;z-index:1}

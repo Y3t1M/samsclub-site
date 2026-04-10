@@ -696,6 +696,34 @@ document.addEventListener('DOMContentLoaded', () => {
       cart.push({name, price: parseFloat(price)||0, img: img||'', qty:1});
     }
     updateCartUI();
+    showToast(name, img);
+  }
+
+  /* ---------- TOAST NOTIFICATIONS ---------- */
+  const toastContainer = document.createElement('div');
+  toastContainer.className = 'toast-container';
+  document.body.appendChild(toastContainer);
+
+  function showToast(name, img) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+      ${img ? `<img src="${img}" alt="" class="toast-img">` : '<div class="toast-img toast-img-placeholder"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0071dc" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>'}
+      <span class="toast-text"><strong>Added to cart</strong>${name}</span>
+      <button class="toast-view">View Cart</button>
+    `;
+    toastContainer.appendChild(toast);
+    // Trigger animation
+    requestAnimationFrame(() => toast.classList.add('show'));
+    toast.querySelector('.toast-view').addEventListener('click', () => {
+      toast.remove();
+      cartDrawer.classList.add('open');
+    });
+    setTimeout(() => {
+      toast.classList.remove('show');
+      toast.classList.add('hide');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
   }
 
   function removeFromCart(idx) {
