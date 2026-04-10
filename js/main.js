@@ -556,7 +556,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- CHECKOUT PAGE ---------- */
   function showCheckout() {
     if (document.querySelector('.checkout-page')) return;
-    const subtotal = cart.reduce((s, i) => s + i.price, 0);
+    const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+    const totalItems = cart.reduce((s, i) => s + i.qty, 0);
     const tax = subtotal * 0.095;
     const total = subtotal + tax;
 
@@ -579,12 +580,12 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
           <div class="checkout-section">
-            <h3>Items (${cart.length})</h3>
+            <h3>Items (${totalItems})</h3>
             <div class="checkout-items">
               ${cart.map(item => `
                 <div class="checkout-item">
                   ${item.img ? `<img src="${item.img}" alt="" class="checkout-item-img">` : '<div class="checkout-item-img" style="background:var(--gray-10)"></div>'}
-                  <div class="checkout-item-info"><span>${item.name}</span><strong>$${item.price.toFixed(2)}</strong></div>
+                  <div class="checkout-item-info"><span>${item.name}${item.qty > 1 ? ` x${item.qty}` : ''}</span><strong>$${(item.price * item.qty).toFixed(2)}</strong></div>
                 </div>
               `).join('')}
             </div>
@@ -602,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="checkout-sidebar">
           <div class="checkout-summary">
             <h3>Order Summary</h3>
-            <div class="checkout-summary-row"><span>Subtotal (${cart.length} items)</span><span>$${subtotal.toFixed(2)}</span></div>
+            <div class="checkout-summary-row"><span>Subtotal (${totalItems} items)</span><span>$${subtotal.toFixed(2)}</span></div>
             <div class="checkout-summary-row"><span>Estimated Tax</span><span>$${tax.toFixed(2)}</span></div>
             <div class="checkout-summary-row"><span>Shipping</span><span style="color:var(--green);font-weight:600">Free</span></div>
             <div class="checkout-summary-divider"></div>
@@ -676,23 +677,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartPriceEl = document.querySelector('.sc-cart-item span:last-child');
 
   function updateCartUI() {
+    const totalQty = cart.reduce((s, i) => s + i.qty, 0);
     if (cartBadge) {
-      cartBadge.textContent = cart.length;
+      cartBadge.textContent = totalQty;
       cartBadge.style.transform = 'scale(1.4)';
       setTimeout(() => cartBadge.style.transform = '', 200);
     }
-    const total = cart.reduce((s, i) => s + i.price, 0);
+    const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
     if (cartPriceEl) cartPriceEl.textContent = '$' + total.toFixed(2);
     renderCartDrawer();
   }
 
   function addToCart(name, price, img) {
-    cart.push({name, price: parseFloat(price)||0, img: img||''});
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({name, price: parseFloat(price)||0, img: img||'', qty:1});
+    }
     updateCartUI();
   }
 
   function removeFromCart(idx) {
     cart.splice(idx, 1);
+    updateCartUI();
+  }
+
+  function changeQty(idx, delta) {
+    cart[idx].qty += delta;
+    if (cart[idx].qty <= 0) cart.splice(idx, 1);
     updateCartUI();
   }
 
@@ -711,7 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderCartDrawer() {
     const list = cartDrawer.querySelector('.cart-drawer-items');
-    const total = cart.reduce((s, i) => s + i.price, 0);
+    const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
     cartDrawer.querySelector('.cart-drawer-total strong').textContent = '$' + total.toFixed(2);
     if (cart.length === 0) {
       list.innerHTML = '<div class="cart-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#babbbe" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is empty</p></div>';
@@ -720,12 +733,23 @@ document.addEventListener('DOMContentLoaded', () => {
     list.innerHTML = cart.map((item, i) => `
       <div class="cart-item">
         ${item.img ? `<img class="cart-item-img" src="${item.img}" alt="">` : '<div class="cart-item-img cart-item-placeholder"></div>'}
-        <div class="cart-item-info"><span class="cart-item-name">${item.name}</span><span class="cart-item-price">$${item.price.toFixed(2)}</span></div>
+        <div class="cart-item-info">
+          <span class="cart-item-name">${item.name}</span>
+          <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+          <div class="cart-qty">
+            <button class="cart-qty-btn" data-idx="${i}" data-delta="-1">−</button>
+            <span class="cart-qty-num">${item.qty}</span>
+            <button class="cart-qty-btn" data-idx="${i}" data-delta="1">+</button>
+          </div>
+        </div>
         <button class="cart-item-remove" data-idx="${i}">&times;</button>
       </div>
     `).join('');
     list.querySelectorAll('.cart-item-remove').forEach(btn => {
       btn.addEventListener('click', () => removeFromCart(+btn.dataset.idx));
+    });
+    list.querySelectorAll('.cart-qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => changeQty(+btn.dataset.idx, +btn.dataset.delta));
     });
   }
   renderCartDrawer();
@@ -913,5 +937,75 @@ document.addEventListener('DOMContentLoaded', () => {
     renderOrders();
     accountOverlay.classList.add('open');
   });
+
+  /* ---------- HERO BANNER CAROUSEL ---------- */
+  const heroSlider = document.getElementById('heroSlider');
+  const heroDots = document.getElementById('heroDots');
+  if (heroSlider && heroDots) {
+    const slides = heroSlider.querySelectorAll('.sc-hero-card');
+    const dots = heroDots.querySelectorAll('.sc-dot');
+    let currentSlide = 0;
+    let heroInterval;
+
+    function goToSlide(idx) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = idx % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function startHeroAuto() {
+      heroInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(heroInterval);
+        goToSlide(+dot.dataset.slide);
+        startHeroAuto();
+      });
+    });
+
+    startHeroAuto();
+  }
+
+  /* ---------- SHARE - COPY TO CLIPBOARD ---------- */
+  // Override share handlers to actually copy a URL
+  function bindShareReal(container) {
+    container.querySelectorAll('.share-btn').forEach(btn => {
+      btn.replaceWith(btn.cloneNode(true)); // remove old listeners
+    });
+    container.querySelectorAll('.share-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const item = btn.closest('.vfeed-item');
+        const vid = item ? videos.find(v => v.id === +item.dataset.id) : null;
+        const text = vid ? `Check out "${vid.title}" by ${vid.author} on Sam's Club Member Moments!` : 'Check out Sam\'s Club Member Moments!';
+        navigator.clipboard.writeText(text).then(() => {
+          const sp = btn.querySelector('span');
+          sp.textContent = 'Copied!';
+          setTimeout(() => sp.textContent = 'Share', 1500);
+        }).catch(() => {
+          const sp = btn.querySelector('span');
+          sp.textContent = 'Copied!';
+          setTimeout(() => sp.textContent = 'Share', 1500);
+        });
+      });
+    });
+  }
+
+  // Patch into bindFeedEvents - wrap original
+  const origBindFeed = bindFeedEvents;
+  // We already called bindFeedEvents from openModal, so let's patch the share part
+  // by adding a MutationObserver on feed
+  const feedObs = new MutationObserver(() => {
+    if (feed.children.length > 0) bindShareReal(feed);
+  });
+  feedObs.observe(feed, {childList: true});
+
+  /* ---------- QUANTITY IN CART ---------- */
+  // Enhance cart items with qty +/- controls
+  const origRenderCartDrawer = renderCartDrawer;
 
 });

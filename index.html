@@ -101,22 +101,45 @@
     <!-- Hero Banner -->
     <div class="sc-container">
       <div class="sc-hero">
-        <div class="sc-hero-card" style="background: linear-gradient(135deg, #e6f1fc 0%, #cce3f9 100%);">
-          <div class="sc-hero-content">
-            <h2>Instant Savings are on now</h2>
-            <p>Shop offers on patio furniture, appliances and more.</p>
-            <span class="sc-hero-fine">*While supplies last. Ends April 12.</span>
-            <a href="#" class="sc-hero-cta">Shop now</a>
-          </div>
-          <div class="sc-hero-img">
-            <div class="sc-hero-placeholder">
-              <span>UP TO</span>
-              <strong>$500 OFF</strong>
-              <span>top brands</span>
+        <div class="sc-hero-slider" id="heroSlider">
+          <div class="sc-hero-card active" style="background: linear-gradient(135deg, #e6f1fc 0%, #cce3f9 100%);">
+            <div class="sc-hero-content">
+              <h2>Instant Savings are on now</h2>
+              <p>Shop offers on patio furniture, appliances and more.</p>
+              <span class="sc-hero-fine">*While supplies last. Ends April 12.</span>
+              <a href="#" class="sc-hero-cta">Shop now</a>
             </div>
+            <div class="sc-hero-img"><div class="sc-hero-placeholder"><span>UP TO</span><strong>$500 OFF</strong><span>top brands</span></div></div>
+          </div>
+          <div class="sc-hero-card" style="background: linear-gradient(135deg, #002d58 0%, #004f9a 100%);">
+            <div class="sc-hero-content">
+              <h2 style="color:#fff">Member's Mark: quality you can trust</h2>
+              <p style="color:rgba(255,255,255,.85)">Discover hundreds of premium products at member prices.</p>
+              <span class="sc-hero-fine" style="color:rgba(255,255,255,.6)">Exclusively at Sam's Club</span>
+              <a href="#" class="sc-hero-cta">Shop Member's Mark</a>
+            </div>
+            <div class="sc-hero-img"><div class="sc-hero-placeholder" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff"><span>NEW</span><strong>ARRIVALS</strong><span>weekly</span></div></div>
+          </div>
+          <div class="sc-hero-card" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+            <div class="sc-hero-content">
+              <h2>Fresh groceries delivered</h2>
+              <p>Get same-day delivery or free pickup at your club.</p>
+              <span class="sc-hero-fine">Free for Plus members on orders $50+</span>
+              <a href="#" class="sc-hero-cta">Order groceries</a>
+            </div>
+            <div class="sc-hero-img"><div class="sc-hero-placeholder" style="border-color:rgba(42,135,3,.2);background:rgba(42,135,3,.08);color:#2a8703"><span>SAME DAY</span><strong>DELIVERY</strong><span>available</span></div></div>
+          </div>
+          <div class="sc-hero-card" style="background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%);">
+            <div class="sc-hero-content">
+              <h2 style="color:#fff">Spring cleaning essentials</h2>
+              <p style="color:rgba(255,255,255,.85)">Stock up on cleaning supplies and save big.</p>
+              <span class="sc-hero-fine" style="color:rgba(255,255,255,.6)">Bulk sizes, better prices</span>
+              <a href="#" class="sc-hero-cta">Shop cleaning</a>
+            </div>
+            <div class="sc-hero-img"><div class="sc-hero-placeholder" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff"><span>SAVE UP TO</span><strong>30%</strong><span>on essentials</span></div></div>
           </div>
         </div>
-        <div class="sc-dots"><span class="sc-dot active"></span><span class="sc-dot"></span><span class="sc-dot"></span><span class="sc-dot"></span></div>
+        <div class="sc-dots" id="heroDots"><span class="sc-dot active" data-slide="0"></span><span class="sc-dot" data-slide="1"></span><span class="sc-dot" data-slide="2"></span><span class="sc-dot" data-slide="3"></span></div>
       </div>
     </div>
 
