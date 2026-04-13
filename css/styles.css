@@ -200,8 +200,9 @@ video::-webkit-media-controls{display:none!important}
 /* Pause icon overlay */
 .vcard-pause-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);z-index:8;pointer-events:none;opacity:0;transition:all .2s ease;background:rgba(0,0,0,.4);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .vcard-pause-icon.show{transform:translate(-50%,-50%) scale(1);opacity:1}
-/* Mute button */
-.vcard-mute-btn{position:absolute;top:14px;left:14px;z-index:8;background:rgba(0,0,0,.4);border:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;-webkit-tap-highlight-color:transparent}
+/* Mute button - hidden by default, shown on hover/pause */
+.vcard-mute-btn{position:absolute;top:14px;left:14px;z-index:8;background:rgba(0,0,0,.4);border:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;opacity:0;pointer-events:none}
+.vcard-player:hover .vcard-mute-btn,.vcard-mute-btn.visible{opacity:1;pointer-events:auto}
 .vcard-mute-btn:hover{background:rgba(0,0,0,.6)}
 .dbl-heart{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);z-index:10;pointer-events:none;opacity:0}
 .dbl-heart.pop{animation:heartPop .7s ease forwards}

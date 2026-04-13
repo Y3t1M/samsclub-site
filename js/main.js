@@ -240,13 +240,16 @@ document.addEventListener('DOMContentLoaded', () => {
           tapTimeout = setTimeout(() => {
             const vid = player.querySelector('.vcard-vid');
             const pauseIcon = player.querySelector('.vcard-pause-icon');
+            const muteBtn = player.querySelector('.vcard-mute-btn');
             if (vid) {
               if (vid.paused) {
                 vid.play().catch(()=>{});
                 pauseIcon?.classList.remove('show');
+                muteBtn?.classList.remove('visible');
               } else {
                 vid.pause();
                 pauseIcon?.classList.add('show');
+                muteBtn?.classList.add('visible');
               }
             }
           }, 300);
@@ -448,7 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tapTimeout = setTimeout(() => {
               const vid = player.querySelector('.vcard-vid');
               const pauseIcon = player.querySelector('.vcard-pause-icon');
-              if (vid) { if (vid.paused) { vid.play().catch(()=>{}); pauseIcon?.classList.remove('show'); } else { vid.pause(); pauseIcon?.classList.add('show'); } }
+              const muteBtn = player.querySelector('.vcard-mute-btn');
+              if (vid) { if (vid.paused) { vid.play().catch(()=>{}); pauseIcon?.classList.remove('show'); muteBtn?.classList.remove('visible'); } else { vid.pause(); pauseIcon?.classList.add('show'); muteBtn?.classList.add('visible'); } }
             }, 300);
           }
         });
@@ -531,6 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close any open product popups and hide pause icons
     feed.querySelectorAll('.vcard-products.open').forEach(p => p.classList.remove('open'));
     feed.querySelectorAll('.vcard-pause-icon.show').forEach(p => p.classList.remove('show'));
+    feed.querySelectorAll('.vcard-mute-btn.visible').forEach(b => b.classList.remove('visible'));
     // Play this item's video
     const vid = item.querySelector('.vcard-vid');
     const bar = item.querySelector('.vcard-progress-bar');
