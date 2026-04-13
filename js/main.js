@@ -68,6 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const liked = new Set();
+  let isMuted = false; // Start unmuted - sound on by default
+
+  function updateMuteIcon(btn, muted) {
+    const on = btn.querySelector('.mute-on');
+    const off = btn.querySelector('.mute-off');
+    if (on) on.style.display = muted ? '' : 'none';
+    if (off) off.style.display = muted ? 'none' : '';
+  }
 
   /* ---------- CAROUSEL ---------- */
   const track = document.getElementById('momentsTrack');
@@ -143,7 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="vfeed-item" data-id="${v.id}">
       <div class="vcard">
         <div class="vcard-player" style="background:${v.bg}">
-          ${v.src ? `<video class="vcard-vid" src="${v.src}" muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noplaybackrate"></video>` : ''}
+          ${v.src ? `<video class="vcard-vid" src="${v.src}" loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noplaybackrate"></video>` : ''}
+          <div class="vcard-pause-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></div>
+          <button class="vcard-mute-btn"><svg class="mute-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M23 9l-6 6M17 9l6 6"/></svg><svg class="mute-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
           <svg class="dbl-heart" width="80" height="80" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           <div class="vcard-info">
             <div class="vcard-author"><div class="vcard-av" style="background:${v.abg}">${v.av}</div><span class="vcard-name">${v.author}</span></div>
@@ -204,24 +214,56 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', e => { e.stopPropagation(); toggleLike(btn); });
     });
 
-    // DOUBLE TAP TO LIKE
+    // TAP TO PAUSE/PLAY + DOUBLE TAP TO LIKE
     feed.querySelectorAll('.vcard-player').forEach(player => {
       let lastTap = 0;
+      let tapTimeout = null;
       player.addEventListener('click', e => {
+        // Ignore clicks on action buttons, product tag, mute btn
+        if (e.target.closest('.vcard-actions') || e.target.closest('.vcard-product-tag') || e.target.closest('.vcard-products') || e.target.closest('.vcard-mute-btn')) return;
         const now = Date.now();
         if (now - lastTap < 300) {
-          // Double tap
+          // Double tap - like
+          clearTimeout(tapTimeout);
           const item = player.closest('.vfeed-item');
           const likeBtn = item.querySelector('.like-btn');
           const vid = +item.dataset.id;
           if (!liked.has(vid)) toggleLike(likeBtn);
-          // Show heart animation
           const heart = player.querySelector('.dbl-heart');
           heart.classList.remove('pop');
-          void heart.offsetWidth; // reflow
+          void heart.offsetWidth;
           heart.classList.add('pop');
+          lastTap = 0;
+        } else {
+          // Single tap - wait to confirm it's not a double tap
+          lastTap = now;
+          tapTimeout = setTimeout(() => {
+            const vid = player.querySelector('.vcard-vid');
+            const pauseIcon = player.querySelector('.vcard-pause-icon');
+            if (vid) {
+              if (vid.paused) {
+                vid.play().catch(()=>{});
+                pauseIcon?.classList.remove('show');
+              } else {
+                vid.pause();
+                pauseIcon?.classList.add('show');
+              }
+            }
+          }, 300);
         }
-        lastTap = now;
+      });
+    });
+
+    // MUTE/UNMUTE BUTTON
+    feed.querySelectorAll('.vcard-mute-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const vid = btn.closest('.vcard-player').querySelector('.vcard-vid');
+        if (!vid) return;
+        vid.muted = !vid.muted;
+        isMuted = vid.muted;
+        // Update all mute buttons to match
+        feed.querySelectorAll('.vcard-mute-btn').forEach(b => updateMuteIcon(b, isMuted));
       });
     });
 
@@ -370,23 +412,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
+      // Mute button on clones
+      feed.querySelectorAll('.vfeed-clone .vcard-mute-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const vid = btn.closest('.vcard-player').querySelector('.vcard-vid');
+          if (!vid) return;
+          vid.muted = !vid.muted;
+          isMuted = vid.muted;
+          feed.querySelectorAll('.vcard-mute-btn').forEach(b => updateMuteIcon(b, isMuted));
+        });
+      });
+
       // Observe clones for video autoplay too
       feed.querySelectorAll('.vfeed-clone').forEach(it => obs.observe(it));
 
-      // Double-tap on clones
+      // Tap/double-tap on clones
       feed.querySelectorAll('.vfeed-clone .vcard-player').forEach(player => {
         let lastTap = 0;
+        let tapTimeout = null;
         player.addEventListener('click', e => {
+          if (e.target.closest('.vcard-actions') || e.target.closest('.vcard-product-tag') || e.target.closest('.vcard-products') || e.target.closest('.vcard-mute-btn')) return;
           const now = Date.now();
           if (now - lastTap < 300) {
+            clearTimeout(tapTimeout);
             const item = player.closest('.vfeed-item');
             const likeBtn = item.querySelector('.like-btn');
             const vid = +item.dataset.id;
             if (!liked.has(vid)) toggleLike(likeBtn);
             const heart = player.querySelector('.dbl-heart');
             heart.classList.remove('pop'); void heart.offsetWidth; heart.classList.add('pop');
+            lastTap = 0;
+          } else {
+            lastTap = now;
+            tapTimeout = setTimeout(() => {
+              const vid = player.querySelector('.vcard-vid');
+              const pauseIcon = player.querySelector('.vcard-pause-icon');
+              if (vid) { if (vid.paused) { vid.play().catch(()=>{}); pauseIcon?.classList.remove('show'); } else { vid.pause(); pauseIcon?.classList.add('show'); } }
+            }, 300);
           }
-          lastTap = now;
         });
       });
 
@@ -464,14 +528,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!item) return;
     // Stop all other videos in feed
     feed.querySelectorAll('.vcard-vid').forEach(v => { v.pause(); v.currentTime = 0; });
-    // Close any open product popups
+    // Close any open product popups and hide pause icons
     feed.querySelectorAll('.vcard-products.open').forEach(p => p.classList.remove('open'));
+    feed.querySelectorAll('.vcard-pause-icon.show').forEach(p => p.classList.remove('show'));
     // Play this item's video
     const vid = item.querySelector('.vcard-vid');
     const bar = item.querySelector('.vcard-progress-bar');
     if (vid) {
+      vid.muted = isMuted;
       vid.currentTime = 0;
       vid.play().catch(()=>{});
+      // Update mute icon for this item
+      const muteBtn = item.querySelector('.vcard-mute-btn');
+      if (muteBtn) updateMuteIcon(muteBtn, isMuted);
 
       if (bar) {
         vid.addEventListener('loadedmetadata', () => {
