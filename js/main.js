@@ -7,63 +7,213 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- VIDEO DATA ---------- */
   const videos = [
-    { id:1, title:"My top 3 Sam's Club staples with price per serving", author:"@george.kamel", av:"G", abg:"#f97316", bg:"#1a1a1a", src:"images/moment1.mp4", dur:"0:47", views:"15.8K", likes:567, products:[
-      {name:"Member's Mark Chicken Breast, 6 lb",price:"$13.98",pricef:13.98,img:"images/products/chicken.jpeg"},
-      {name:"Member's Mark Cauliflower Crust Pizza, 2 pk",price:"$14.48",pricef:14.48,img:"images/products/brownie.png"},
-      {name:"Chicken Pad Thai Frozen Meal",price:"$11.98",pricef:11.98,img:"images/products/rice.jpeg"}
+    { id:1, title:"My top 3 Sam's Club staples with price per serving", author:"@george.kamel", av:"G", abg:"#f97316", bg:"#1a1a1a", src:"images/moment1.mp4", dur:"0:47", views:"2.3M", likes:187200, products:[
+      {name:"Member's Mark Chicken Pad Thai Frozen Meal",price:"$14.98",pricef:14.98,img:""},
+      {name:"Member's Mark Cauliflower Crust Cheese Pizza, 2 pk",price:"$14.98",pricef:14.98,img:""},
+      {name:"La Croix Sparkling Water Variety Pack, 24 ct",price:"$8.98",pricef:8.98,img:""}
     ], comments:[
-      {u:"LindsayP",a:"L",bg:"#5b6abf",t:"The price per serving breakdown is so helpful!",time:"2h"},
-      {u:"KarenS",a:"K",bg:"#fb923c",t:"$13.98 for that much chicken? Going today",time:"5h"},
-      {u:"MarkD",a:"M",bg:"#3b82f6",t:"That cauliflower pizza is legit good",time:"3h"}
+      {u:"LindsayP",a:"L",bg:"#f59e0b",t:"The price per serving breakdown is so helpful!",time:"2h"},
+      {u:"KarenS",a:"K",bg:"#0ea5e9",t:"$13.98 for that much chicken? Going today",time:"5h"},
+      {u:"MarkD",a:"M",bg:"#10b981",t:"That cauliflower pizza is legit good",time:"3h"},
+      {u:"DanielR",a:"D",bg:"#f97316",t:"Finally someone doing real math on grocery prices",time:"1h"},
+      {u:"MeganT",a:"M",bg:"#ec4899",t:"I do the same thing every month, saves me hundreds",time:"4h"},
+      {u:"JamieP",a:"J",bg:"#fb923c",t:"The pad thai frozen meal is a game changer for busy nights",time:"6h"},
+      {u:"BrianK",a:"B",bg:"#5b6abf",t:"Just joined Plus, heading here today",time:"2h"},
+      {u:"SophieW",a:"S",bg:"#6366f1",t:"Please do this for Costco next!",time:"7h"},
+      {u:"ErinM",a:"E",bg:"#f43f5e",t:"Your videos made me join Sam's Club",time:"3d"},
+      {u:"CharlesH",a:"C",bg:"#3b82f6",t:"Wife and I do this breakdown monthly now",time:"1d"},
+      {u:"NicoleB",a:"N",bg:"#8b5cf6",t:"That chicken freezes great too, tip",time:"2d"},
+      {u:"TomG",a:"T",bg:"#84cc16",t:"This is why I follow. Pure value.",time:"5h"},
+      {u:"AshleyR",a:"A",bg:"#22c55e",t:"Adding these to my list for weekend",time:"8h"},
+      {u:"MichaelJ",a:"M",bg:"#a855f7",t:"How long does the chicken last in your fridge?",time:"11h"},
+      {u:"RachelF",a:"R",bg:"#db2777",t:"My family of 5 basically lives off these staples",time:"1d"},
+      {u:"KevinO",a:"K",bg:"#06b6d4",t:"Per serving math is the ultimate flex",time:"2d"},
+      {u:"LauraS",a:"L",bg:"#f59e0b",t:"The pizza crust is lower carb too btw",time:"6h"},
+      {u:"JennyW",a:"J",bg:"#5b6abf",t:"Okay I'm convinced, pickup order going in",time:"4h"},
+      {u:"PaulC",a:"P",bg:"#3b82f6",t:"Man George making finance cool with groceries",time:"1d"},
+      {u:"GregM",a:"G",bg:"#a855f7",t:"This is the only grocery content I need",time:"3h"},
+      {u:"StephenR",a:"S",bg:"#0071dc",t:"Gonna start my own version, thank you",time:"2d"},
+      {u:"OliviaN",a:"O",bg:"#ec4899",t:"Sam's Club app makes this even faster. Highly rec.",time:"1h"}
     ]},
-    { id:2, title:"Sam's Club grocery haul - healthy snack finds!", author:"@thatcrunchymomkate", av:"K", abg:"#5b6abf", bg:"#1a1a1a", src:"images/moment2.mp4", dur:"0:32", views:"12.4K", likes:342, products:[
-      {name:"Spindrift Sparkling Water Variety, 30 ct",price:"$15.98",pricef:15.98,img:"images/products/dawn.jpeg"},
-      {name:"Goodles Mac & Cheese Variety, 8 pk",price:"$11.98",pricef:11.98,img:"images/products/brownie.png"},
-      {name:"Organic Crispy Coconut Rolls",price:"$9.98",pricef:9.98,img:"images/products/butter.jpeg"}
+    { id:2, title:"Sam's Club grocery haul - healthy snack finds!", author:"@crunchymom", av:"K", abg:"#5b6abf", bg:"#1a1a1a", src:"images/moment2.mp4", dur:"0:32", views:"1.8M", likes:142100, products:[
+      {name:"One Mighty Mill Stone Milled Organic Sourdough",price:"$6.98",pricef:6.98,img:""},
+      {name:"Spindrift Sparkling Water Variety Pack, 30 ct",price:"$15.98",pricef:15.98,img:""},
+      {name:"Naturally More Organic Creamy Peanut Butter, 2 pk",price:"$13.98",pricef:13.98,img:""},
+      {name:"Goodles Cheddy Mac & Shella Good Mac & Cheese, 8 pk",price:"$11.98",pricef:11.98,img:""},
+      {name:"Sun Date Organic Medjool Dates, 2 lbs",price:"$9.98",pricef:9.98,img:""},
+      {name:"Tropical Fields Organic Crispy Coconut Rolls",price:"$9.98",pricef:9.98,img:""},
+      {name:"Solely Organic Fruit Jerky Variety, 16 pk",price:"$13.98",pricef:13.98,img:""},
+      {name:"Jackson's Sweet Potato Chips, Sea Salt, 4 pk",price:"$8.98",pricef:8.98,img:""},
+      {name:"Simple Mills Almond Flour Crackers, Sea Salt, 2 pk",price:"$10.98",pricef:10.98,img:""},
+      {name:"Poppi Cranberry Fizz Prebiotic Soda, 15 pk",price:"$21.98",pricef:21.98,img:""}
     ], comments:[
       {u:"SarahL",a:"S",bg:"#f43f5e",t:"The Spindrift variety pack is amazing!",time:"2h"},
       {u:"MarkD",a:"M",bg:"#3b82f6",t:"Goodles is the best mac & cheese we've tried",time:"3h"},
-      {u:"AshleyR",a:"A",bg:"#22c55e",t:"Adding all of this to my list for Saturday",time:"5h"}
+      {u:"AshleyR",a:"A",bg:"#22c55e",t:"Adding all of this to my list for Saturday",time:"5h"},
+      {u:"EmilyP",a:"E",bg:"#ec4899",t:"The coconut rolls are addicting, kids love them",time:"1h"},
+      {u:"JessicaM",a:"J",bg:"#fb923c",t:"How many does the Spindrift 30 pack last your family?",time:"4h"},
+      {u:"KatieB",a:"K",bg:"#0ea5e9",t:"Love this type of haul - real healthy mom stuff",time:"6h"},
+      {u:"RyanN",a:"R",bg:"#db2777",t:"Wife sent me this video, now she wants Goodles",time:"2h"},
+      {u:"MeganK",a:"M",bg:"#10b981",t:"These are all in my cart as we speak",time:"30m"},
+      {u:"ChelseaO",a:"C",bg:"#3b82f6",t:"Finally a haul that isn't 90% junk food",time:"8h"},
+      {u:"TinaR",a:"T",bg:"#84cc16",t:"My toddler literally eats these coconut rolls daily",time:"1d"},
+      {u:"BrookeS",a:"B",bg:"#a855f7",t:"Okay the Spindrift grapefruit is tier S",time:"5h"},
+      {u:"AlexH",a:"A",bg:"#0071dc",t:"Any protein recs from Sam's?",time:"3h"},
+      {u:"DanaL",a:"D",bg:"#f59e0b",t:"The raspberry lime Spindrift is everything",time:"7h"},
+      {u:"GregP",a:"G",bg:"#6366f1",t:"Just joined Sam's Club because of these videos",time:"2d"},
+      {u:"OliviaT",a:"O",bg:"#ec4899",t:"Bought the Goodles after your last post, kids approved",time:"1d"},
+      {u:"VictoriaM",a:"V",bg:"#fb923c",t:"Crunchy mom squad rise up",time:"4h"},
+      {u:"NicoleS",a:"N",bg:"#8b5cf6",t:"Going this weekend, thanks for the list",time:"2h"},
+      {u:"HannahB",a:"H",bg:"#f43f5e",t:"Wait those cauli crust pizzas are here too right?",time:"5h"},
+      {u:"PeterW",a:"P",bg:"#06b6d4",t:"Great stuff, gonna try the mac this week",time:"1d"},
+      {u:"JennaC",a:"J",bg:"#5b6abf",t:"We just got a Sam's membership and this is gold",time:"3h"},
+      {u:"MariaG",a:"M",bg:"#22c55e",t:"Sugar content on coconut rolls? Thinking for kids",time:"6h"},
+      {u:"LaurenF",a:"L",bg:"#f97316",t:"Perfect timing, meal planning tonight",time:"45m"}
     ]},
-    { id:3, title:"Here's everything I get at Sam's Club", author:"@caseykellyy", av:"C", abg:"#3b82f6", bg:"#1a1a1a", src:"images/moment3.mp4", dur:"0:58", views:"23.1K", likes:891, products:[
-      {name:"Organic Romaine Hearts, 6 ct",price:"$3.98",pricef:3.98,img:"images/products/rice.jpeg"},
-      {name:"100% Grass-Fed Ground Beef, 4 lb",price:"$19.98",pricef:19.98,img:"images/products/chicken.jpeg"},
-      {name:"Member's Mark Chicken Breast, 6 lb",price:"$13.98",pricef:13.98,img:"images/products/chicken.jpeg"}
+    { id:3, title:"Here's everything I get at Sam's Club", author:"@caseykelly", av:"C", abg:"#3b82f6", bg:"#1a1a1a", src:"images/moment3.mp4", dur:"0:58", views:"3.1M", likes:267500, products:[
+      {name:"Grass-Fed Ground Beef, 4 lb",price:"$19.98",pricef:19.98,img:""},
+      {name:"Member's Mark Chicken Breast, Boneless Skinless",price:"$13.98",pricef:13.98,img:""},
+      {name:"Simply Nature Organic White Corn Tortillas",price:"$5.98",pricef:5.98,img:""},
+      {name:"Blue Diamond Oven Roasted Almonds, Lightly Salted",price:"$11.98",pricef:11.98,img:""},
+      {name:"Organic Valley Stringles String Cheese, 24 ct",price:"$12.98",pricef:12.98,img:""},
+      {name:"Member's Mark Organic Peanut Butter, 40 oz",price:"$9.98",pricef:9.98,img:""},
+      {name:"Organic Romaine Hearts, 6 ct",price:"$3.98",pricef:3.98,img:""},
+      {name:"Member's Mark Pink Himalayan Salt Grinder + Peppercorn",price:"$10.98",pricef:10.98,img:""}
     ], comments:[
       {u:"JennyW",a:"J",bg:"#5b6abf",t:"The romaine and broccoli deal is unbeatable",time:"1h"},
       {u:"DaveP",a:"D",bg:"#fb923c",t:"That grass-fed beef is such a good price",time:"2h"},
       {u:"RyanK",a:"R",bg:"#22c55e",t:"This is basically my exact cart every week",time:"4h"},
-      {u:"NicoleF",a:"N",bg:"#f97316",t:"The singles cheese packs are clutch for lunches",time:"5h"}
+      {u:"NicoleF",a:"N",bg:"#f97316",t:"The singles cheese packs are clutch for lunches",time:"5h"},
+      {u:"SarahT",a:"S",bg:"#ec4899",t:"First time watching Casey and I'm obsessed",time:"1h"},
+      {u:"MikeS",a:"M",bg:"#3b82f6",t:"Bought the beef last week, best flavor ever",time:"3h"},
+      {u:"LisaK",a:"L",bg:"#a855f7",t:"Can we talk about the produce quality though",time:"30m"},
+      {u:"BryanO",a:"B",bg:"#0ea5e9",t:"Romaine hearts for $3.98 - incredible",time:"6h"},
+      {u:"HollyM",a:"H",bg:"#f43f5e",t:"Doing this exact haul tomorrow, thank you",time:"2h"},
+      {u:"EricR",a:"E",bg:"#10b981",t:"The whole family shops off your lists now",time:"1d"},
+      {u:"JakeD",a:"J",bg:"#fb923c",t:"You pick the best staples every time",time:"8h"},
+      {u:"StephaniP",a:"S",bg:"#db2777",t:"Sent this to my husband as my shopping list",time:"4h"},
+      {u:"DerekF",a:"D",bg:"#f59e0b",t:"Sam's Club or Costco? You always pick Sam's?",time:"7h"},
+      {u:"MariaC",a:"M",bg:"#84cc16",t:"Been a member 12 years. Agree with every pick.",time:"2d"},
+      {u:"SophiaL",a:"S",bg:"#6366f1",t:"You need your own cookbook at this point",time:"1d"},
+      {u:"TanyaB",a:"T",bg:"#0071dc",t:"Switching from Costco after this series",time:"9h"},
+      {u:"ChrisN",a:"C",bg:"#8b5cf6",t:"My wife made me watch. Now I get it.",time:"3h"},
+      {u:"BethanyH",a:"B",bg:"#ec4899",t:"What freezer bags do you use for the beef?",time:"45m"},
+      {u:"JustinL",a:"J",bg:"#f43f5e",t:"$19.98 for 4lb grass-fed? Not possible elsewhere",time:"6h"},
+      {u:"KelsieG",a:"K",bg:"#22c55e",t:"Love the energy, love the prices. Subbed.",time:"2h"},
+      {u:"BrianM",a:"B",bg:"#fb923c",t:"Okay Casey fanboy here. Never miss a haul.",time:"1d"},
+      {u:"AmandaW",a:"A",bg:"#0ea5e9",t:"The bakery section is actually next level too",time:"5h"}
     ]},
-    { id:4, title:"Sam's Club new active wear for men", author:"@costcoandsamsclubmama", av:"M", abg:"#22c55e", bg:"#1a1a1a", src:"images/moment4.mp4", dur:"1:05", views:"8.7K", likes:189, products:[
-      {name:"Outdoor Voices CloudKnit Tee, Men's",price:"$14.98",pricef:14.98,img:"images/products/shorts.jpg"},
-      {name:"Outdoor Voices CloudKnit Tee (Blue)",price:"$14.98",pricef:14.98,img:"images/products/shorts.jpg"}
+    { id:4, title:"Sam's Club new active wear for men", author:"@samsclubmama", av:"M", abg:"#22c55e", bg:"#1a1a1a", src:"images/moment4.mp4", dur:"1:05", views:"1.2M", likes:108400, products:[
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Olive",price:"$14.98",pricef:14.98,img:""},
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Navy",price:"$14.98",pricef:14.98,img:""},
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Cream",price:"$14.98",pricef:14.98,img:""},
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Black",price:"$14.98",pricef:14.98,img:""},
+      {name:"Outdoor Voices Athletic Shorts, Men's Tan",price:"$16.98",pricef:16.98,img:""},
+      {name:"Outdoor Voices Athletic Shorts, Men's Navy",price:"$16.98",pricef:16.98,img:""},
+      {name:"Outdoor Voices Athletic Shorts, Men's Green",price:"$16.98",pricef:16.98,img:""},
+      {name:"Outdoor Voices Zip-Pocket Training Pants, Men's",price:"$22.98",pricef:22.98,img:""}
     ], comments:[
       {u:"ChrisB",a:"C",bg:"#a855f7",t:"Those CloudKnit tees look super soft!",time:"30m"},
-      {u:"TinaM",a:"T",bg:"#ec4899",t:"What size did you grab? Do they run big?",time:"1h"}
+      {u:"TinaM",a:"T",bg:"#ec4899",t:"What size did you grab? Do they run big?",time:"1h"},
+      {u:"JordanP",a:"J",bg:"#3b82f6",t:"Been waiting for Sam's to do activewear right",time:"2h"},
+      {u:"DanielO",a:"D",bg:"#0ea5e9",t:"Picking these up for my husband this weekend",time:"3h"},
+      {u:"KevinR",a:"K",bg:"#22c55e",t:"The price point makes these a no brainer",time:"4h"},
+      {u:"MeganS",a:"M",bg:"#f97316",t:"My husband lives in these now lol",time:"1d"},
+      {u:"NickT",a:"N",bg:"#fb923c",t:"CloudKnit > Lululemon in my opinion",time:"5h"},
+      {u:"ClaudiaB",a:"C",bg:"#db2777",t:"Do they hold up in the wash?",time:"6h"},
+      {u:"TylerM",a:"T",bg:"#84cc16",t:"$14.98 for a shirt this nice is wild",time:"2h"},
+      {u:"HeatherK",a:"H",bg:"#f43f5e",t:"Just grabbed two for my brother's birthday",time:"45m"},
+      {u:"AndyP",a:"A",bg:"#6366f1",t:"Sam's Club is quietly having a fashion moment",time:"1d"},
+      {u:"JustinC",a:"J",bg:"#a855f7",t:"Need the black one in all sizes",time:"3h"},
+      {u:"RachelD",a:"R",bg:"#ec4899",t:"This whole line is solid, kids got sweatpants too",time:"8h"},
+      {u:"SteveF",a:"S",bg:"#f59e0b",t:"They were sold out at mine - link in bio?",time:"12h"},
+      {u:"KevinJ",a:"K",bg:"#3b82f6",t:"Best men's tee under $20 easily",time:"1d"},
+      {u:"SarahO",a:"S",bg:"#fb923c",t:"Husband tested, husband approved",time:"4h"},
+      {u:"MikaylaR",a:"M",bg:"#0ea5e9",t:"Did they have joggers too?",time:"6h"},
+      {u:"DrewL",a:"D",bg:"#22c55e",t:"Already on my third CloudKnit - they're great",time:"2h"},
+      {u:"JenniferB",a:"J",bg:"#db2777",t:"Do they have women's versions coming?",time:"30m"},
+      {u:"MichaelT",a:"M",bg:"#8b5cf6",t:"Perfect for the gym, perfect for lounging",time:"1d"},
+      {u:"AlexP",a:"A",bg:"#0071dc",t:"Mama always finds the best stuff",time:"5h"},
+      {u:"VictoriaG",a:"V",bg:"#f97316",t:"Stocking up, my husband wears them daily",time:"1h"}
     ]},
-    { id:5, title:"Everything I wish I knew before becoming a content creator", author:"@SamsPartner", av:"S", abg:"#f97316", bg:"#1a1a1a", src:"images/moment5.mp4", dur:"0:55", views:"15.8K", likes:567, comments:[
+    { id:5, title:"Everything I wish I knew before becoming a content creator", author:"@sams.jen", av:"S", abg:"#f97316", bg:"#1a1a1a", src:"images/moment5.mp4", dur:"0:55", views:"1.5M", likes:129300, comments:[
       {u:"AmyH",a:"A",bg:"#3b82f6",t:"Love this series! So helpful for beginners",time:"1h"},
       {u:"BethR",a:"B",bg:"#a855f7",t:"The mindset tips are everything",time:"3h"},
-      {u:"TomW",a:"T",bg:"#22c55e",t:"Part 4 when??",time:"4h"}
+      {u:"TomW",a:"T",bg:"#22c55e",t:"Part 4 when??",time:"4h"},
+      {u:"CarlaF",a:"C",bg:"#ec4899",t:"This advice saved me from quitting last year",time:"2h"},
+      {u:"PeterO",a:"P",bg:"#fb923c",t:"Saving this and rewatching weekly",time:"30m"},
+      {u:"DianaM",a:"D",bg:"#6366f1",t:"Need every aspiring creator to see this",time:"5h"},
+      {u:"JasonR",a:"J",bg:"#f43f5e",t:"Thank you for being honest about the hard parts",time:"1d"},
+      {u:"MichelleK",a:"M",bg:"#0ea5e9",t:"The consistency tip hit hard",time:"3h"},
+      {u:"BrandonS",a:"B",bg:"#84cc16",t:"Real talk from a real creator",time:"6h"},
+      {u:"LauraN",a:"L",bg:"#db2777",t:"Sending to my sister who just started",time:"2h"},
+      {u:"NikolasP",a:"N",bg:"#f59e0b",t:"The authenticity point is so underrated",time:"8h"},
+      {u:"AshlynT",a:"A",bg:"#22c55e",t:"Joined Sam's Creator Club because of you",time:"1d"},
+      {u:"GarrettH",a:"G",bg:"#a855f7",t:"More like this, less of the fake content",time:"4h"},
+      {u:"MollyC",a:"M",bg:"#3b82f6",t:"Thank you for the mic drop on comparison",time:"45m"},
+      {u:"RileyP",a:"R",bg:"#fb923c",t:"The money part nobody ever talks about!",time:"1d"},
+      {u:"OliviaS",a:"O",bg:"#ec4899",t:"Watched this 3 times. Notes taken.",time:"2h"},
+      {u:"DavidM",a:"D",bg:"#6366f1",t:"Your content always feels grounded",time:"5h"},
+      {u:"KellyB",a:"K",bg:"#0071dc",t:"What camera do you shoot on?",time:"30m"},
+      {u:"AdamR",a:"A",bg:"#f43f5e",t:"Bookmarked forever",time:"6h"},
+      {u:"HannahG",a:"H",bg:"#8b5cf6",t:"Creator Club invite was the best thing this year",time:"3h"},
+      {u:"ConnorJ",a:"C",bg:"#fb923c",t:"Practical advice that actually works",time:"1d"},
+      {u:"MeganL",a:"M",bg:"#22c55e",t:"Thank you for being transparent about this",time:"4h"}
     ]},
-    { id:6, title:"My first SXSW panel - Sam's Club Creator Club!", author:"@SamsPartner", av:"S", abg:"#a855f7", bg:"#1a1a1a", src:"images/moment6.mp4", dur:"0:38", views:"9.2K", likes:234, comments:[
+    { id:6, title:"My first SXSW panel - Sam's Club Creator Club!", author:"@sams.jen", av:"S", abg:"#a855f7", bg:"#1a1a1a", src:"images/moment6.mp4", dur:"0:38", views:"1.1M", likes:115800, comments:[
       {u:"JasonM",a:"J",bg:"#f43f5e",t:"This is so cool! How do you join Creator Club?",time:"45m"},
-      {u:"MelissaG",a:"M",bg:"#5b6abf",t:"SXSW looked amazing this year",time:"2h"}
+      {u:"MelissaG",a:"M",bg:"#5b6abf",t:"SXSW looked amazing this year",time:"2h"},
+      {u:"DougP",a:"D",bg:"#fb923c",t:"Congrats on the panel - well deserved!",time:"1h"},
+      {u:"TiffanyR",a:"T",bg:"#ec4899",t:"The Creator Club has been a game changer",time:"3h"},
+      {u:"MarkL",a:"M",bg:"#3b82f6",t:"Representing Sam's Club at SXSW is huge",time:"4h"},
+      {u:"AlisonB",a:"A",bg:"#a855f7",t:"So proud of you!! Amazing milestone",time:"30m"},
+      {u:"PaulS",a:"P",bg:"#22c55e",t:"Wish I could have attended, what was your biggest takeaway?",time:"5h"},
+      {u:"RachelH",a:"R",bg:"#db2777",t:"Loved the panel! Such insightful convo",time:"2h"},
+      {u:"DerekM",a:"D",bg:"#f59e0b",t:"SXSW Creator Panels > everything else",time:"6h"},
+      {u:"BriannaT",a:"B",bg:"#0ea5e9",t:"Please do a recap of the full panel",time:"1h"},
+      {u:"EricC",a:"E",bg:"#84cc16",t:"You crushed it, saw the Sam's booth online",time:"8h"},
+      {u:"SashaV",a:"S",bg:"#6366f1",t:"Creator Club info please!",time:"3h"},
+      {u:"NatalieP",a:"N",bg:"#fb923c",t:"This is what brand partnerships should look like",time:"1d"},
+      {u:"ChrisF",a:"C",bg:"#0071dc",t:"Sam's Club Creator Club is elite",time:"4h"},
+      {u:"EmilyR",a:"E",bg:"#ec4899",t:"Brava! Can't wait for the next one",time:"2h"},
+      {u:"MitchellW",a:"M",bg:"#a855f7",t:"That lineup was stacked",time:"7h"},
+      {u:"JennaK",a:"J",bg:"#f43f5e",t:"Saw the coverage - you all killed it",time:"5h"},
+      {u:"AaronL",a:"A",bg:"#22c55e",t:"Congrats on your first panel, many more to come",time:"1d"},
+      {u:"SydneyB",a:"S",bg:"#db2777",t:"Inspiration. Pure inspiration.",time:"6h"},
+      {u:"KendraN",a:"K",bg:"#8b5cf6",t:"How do I apply to Creator Club?",time:"30m"},
+      {u:"BrianO",a:"B",bg:"#fb923c",t:"Keep growing, rooting for you!",time:"3h"},
+      {u:"HannahR",a:"H",bg:"#3b82f6",t:"Sam's Club treating their creators right",time:"1h"}
     ]},
-    { id:7, title:"Sam's Club haul - paper towels, meat & more", author:"@SamsPartner", av:"S", abg:"#fb923c", bg:"#1a1a1a", src:"images/moment7.mp4", dur:"1:15", views:"31.5K", likes:1243, products:[
-      {name:"Member's Mark Paper Towels, 15 mega rolls",price:"$18.98",pricef:18.98,img:"images/products/swiffer.jpeg"},
-      {name:"Ground Beef 80/20, 5 lb",price:"$22.98",pricef:22.98,img:"images/products/chicken.jpeg"},
-      {name:"Member's Mark Large Eggs, 5 doz",price:"$12.78",pricef:12.78,img:"images/products/butter.jpeg"}
+    { id:7, title:"Sam's Club haul - paper towels, meat & more", author:"@sams.jen", av:"S", abg:"#fb923c", bg:"#1a1a1a", src:"images/moment7.mp4", dur:"1:15", views:"2.7M", likes:198600, products:[
+      {name:"Member's Mark Ultra Strong Paper Towels, 15 mega rolls, 2200+ sheets",price:"$18.98",pricef:18.98,img:""},
+      {name:"Ground Beef 80/20, 5 lb Value Pack",price:"$22.98",pricef:22.98,img:""},
+      {name:"Member's Mark Large White Eggs, 5 doz",price:"$12.78",pricef:12.78,img:""},
+      {name:"Member's Mark Vitamin D Whole Milk, 1 gal",price:"$3.98",pricef:3.98,img:""},
+      {name:"Member's Mark Woven Wicker Laundry Hamper with Liner",price:"$49.98",pricef:49.98,img:""},
+      {name:"Member's Mark Heavy Duty Storage Tote, Large",price:"$24.98",pricef:24.98,img:""}
     ], comments:[
       {u:"PaulC",a:"P",bg:"#3b82f6",t:"Those paper towels are the best deal in the store",time:"20m"},
       {u:"EmmaK",a:"E",bg:"#ec4899",t:"My family would LOVE this haul",time:"1h"},
       {u:"DanielR",a:"D",bg:"#22c55e",t:"That ground beef price is unbeatable!",time:"2h"},
-      {u:"SophiaL",a:"S",bg:"#f97316",t:"Part 2 please!!",time:"3h"}
-    ]},
-    { id:8, title:"Back-to-school supply haul 2026", author:"@BrianDad", av:"B", abg:"#818cf8", bg:"linear-gradient(160deg,#38bdf8,#818cf8)", dur:"0:42", views:"7.6K", likes:198, comments:[
-      {u:"CindyT",a:"C",bg:"#fb923c",t:"Those backpacks look so durable! How much were they?",time:"1h"},
-      {u:"PatrickS",a:"P",bg:"#5b6abf",t:"Bulk crayons for the win",time:"3h"}
+      {u:"SophiaL",a:"S",bg:"#f97316",t:"Part 2 please!!",time:"3h"},
+      {u:"JakeT",a:"J",bg:"#fb923c",t:"15 mega rolls for $18.98 is insane",time:"30m"},
+      {u:"MelanieG",a:"M",bg:"#a855f7",t:"Members Mark paper towels are the real deal",time:"4h"},
+      {u:"AnthonyP",a:"A",bg:"#0ea5e9",t:"Eggs 5 doz for $12.78 - how?!",time:"5h"},
+      {u:"KarenB",a:"K",bg:"#db2777",t:"Stocking up this weekend based on this",time:"1d"},
+      {u:"TrevorO",a:"T",bg:"#84cc16",t:"80/20 beef, 5 lb pack = best deal in freezer",time:"6h"},
+      {u:"LilyR",a:"L",bg:"#f43f5e",t:"Paper towels held up through a spaghetti disaster",time:"2h"},
+      {u:"BrianS",a:"B",bg:"#6366f1",t:"Mama my grocery budget loves you",time:"8h"},
+      {u:"NatashaM",a:"N",bg:"#fb923c",t:"Eggs at Sam's have been fresh every time",time:"1h"},
+      {u:"EdwardW",a:"E",bg:"#3b82f6",t:"Members Mark is the hidden hero brand",time:"1d"},
+      {u:"GraceP",a:"G",bg:"#22c55e",t:"Buying the exact same things tomorrow",time:"3h"},
+      {u:"RyanF",a:"R",bg:"#ec4899",t:"Sam's has the best meat prices period",time:"45m"},
+      {u:"AnnaC",a:"A",bg:"#f59e0b",t:"Those mega rolls last me a month",time:"4h"},
+      {u:"JustinH",a:"J",bg:"#a855f7",t:"Your hauls are the reason I joined Plus",time:"1d"},
+      {u:"KateL",a:"K",bg:"#0071dc",t:"Need more haul videos like this!",time:"2h"},
+      {u:"PatrickG",a:"P",bg:"#f43f5e",t:"Ground beef for burgers tonight, price can't be beat",time:"5h"},
+      {u:"LaurenK",a:"L",bg:"#8b5cf6",t:"The true value of membership right here",time:"6h"},
+      {u:"SteveR",a:"S",bg:"#db2777",t:"Eggs, beef, paper towels - the trinity",time:"30m"},
+      {u:"NicholasB",a:"N",bg:"#fb923c",t:"Sam's Club hauls are my comfort scroll",time:"3h"}
     ]}
   ];
 
@@ -97,12 +247,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- HOVER TO PLAY CAROUSEL VIDEOS ---------- */
-  document.querySelectorAll('.mcard').forEach(card => {
-    const vid = card.querySelector('.mcard-video');
-    if (!vid) return;
-    card.addEventListener('mouseenter', () => { vid.currentTime = 0; vid.play().catch(()=>{}); });
-    card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
-  });
+  // Desktop only - touch devices skip this entirely so we don't burn
+  // bandwidth/battery on scroll events that mimic hover.
+  const isHoverDevice = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+  if (isHoverDevice) {
+    document.querySelectorAll('.mcard').forEach(card => {
+      const vid = card.querySelector('.mcard-video');
+      if (!vid) return;
+      card.addEventListener('mouseenter', () => {
+        try { vid.currentTime = 0; } catch(_){}
+        try { vid.play().catch(()=>{}); } catch(_){}
+      });
+      card.addEventListener('mouseleave', () => {
+        try { vid.pause(); vid.currentTime = 0; } catch(_){}
+      });
+    });
+  }
 
   /* ---------- MODAL ---------- */
   const modal = document.getElementById('vmodal');
@@ -121,7 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeModal() {
-    feed.querySelectorAll('.vcard-vid').forEach(v => { v.pause(); v.src = ''; });
+    feed.querySelectorAll('.vcard-vid').forEach(v => {
+      try { v.pause(); v.removeAttribute('src'); v.load(); } catch(_){}
+    });
     modal.classList.remove('open');
     document.body.style.overflow = '';
     feed.innerHTML = '';
@@ -151,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="vfeed-item" data-id="${v.id}">
       <div class="vcard">
         <div class="vcard-player" style="background:${v.bg}">
-          ${v.src ? `<video class="vcard-vid" src="${v.src}" loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noplaybackrate"></video>` : ''}
+          ${v.src ? `<video class="vcard-vid" src="${v.src}" poster="${v.src.replace('.mp4','.jpeg')}" loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noplaybackrate"></video>` : ''}
           <div class="vcard-pause-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></div>
           <button class="vcard-mute-btn"><svg class="mute-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M23 9l-6 6M17 9l6 6"/></svg><svg class="mute-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
           <svg class="dbl-heart" width="80" height="80" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -185,12 +347,12 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="vcard-products">
             <div class="vcard-products-header"><span class="vcard-products-title">Featured in this video</span><button class="vcard-products-close">&times;</button></div>
-            <div class="vcard-products-list">${v.products.map(p => `
-              <div class="vcard-product-item" data-pname="${p.name}" data-pprice="${p.pricef||0}" data-pimg="${p.img}">
-                <img class="vcard-product-thumb" src="${p.img}" alt="${p.name}">
+            <div class="vcard-products-list">${v.products.map(p => { const thumb = p.img || productThumb(p.name); return `
+              <div class="vcard-product-item" data-pname="${p.name}" data-pprice="${p.pricef||0}" data-pimg="${thumb}">
+                <img class="vcard-product-thumb" src="${thumb}" alt="${p.name}" onerror="this.onerror=null;this.src='${productThumb(p.name)}'">
                 <div class="vcard-product-info"><span class="vcard-product-name">${p.name}</span><span class="vcard-product-price">${p.price}</span></div>
                 <button class="vcard-add-btn">Add</button>
-              </div>`).join('')}
+              </div>`; }).join('')}
             </div>
           </div>` : ''}
         </div>
@@ -204,11 +366,46 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>`;
   }
 
-  function fmtNum(n) { return n >= 1000 ? (n/1000).toFixed(1)+'K' : n.toString(); }
+  function fmtNum(n) {
+    if (n >= 1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'')+'M';
+    if (n >= 1000) {
+      const k = n/1000;
+      return (k >= 100 ? Math.round(k) : k.toFixed(1).replace(/\.0$/,'')) + 'K';
+    }
+    return n.toString();
+  }
   function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  // Deterministic unique thumbnail per product name — ensures no two
+  // products ever share the same visual in the "Featured in this video" popup.
+  function productThumb(name) {
+    let h = 0;
+    for (let i = 0; i < name.length; i++) h = ((h << 5) - h + name.charCodeAt(i)) | 0;
+    const hue = Math.abs(h) % 360;
+    const hue2 = (hue + 40) % 360;
+    const c1 = `hsl(${hue},62%,52%)`;
+    const c2 = `hsl(${hue2},68%,38%)`;
+    const letters = name.replace(/[^A-Za-z ]/g,'').trim().split(/\s+/);
+    const initial = (letters[0]?.[0] || '?').toUpperCase();
+    const second = (letters[1]?.[0] || '').toUpperCase();
+    const label = second ? initial + second : initial;
+    const fontSize = label.length === 2 ? 24 : 34;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="64" height="64" rx="10" fill="url(#g)"/><text x="32" y="${label.length===2?41:43}" text-anchor="middle" font-family="Arial,sans-serif" font-size="${fontSize}" fill="white" font-weight="800">${label}</text></svg>`;
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
 
   /* ---------- FEED EVENTS ---------- */
   function bindFeedEvents() {
+    // VIDEO ERROR FALLBACK - if any reel fails to load, hide the video
+    // element so the poster keeps showing instead of a black screen.
+    feed.querySelectorAll('.vcard-vid').forEach(vid => {
+      const onFail = () => { vid.style.display = 'none'; };
+      vid.addEventListener('error', onFail, {once:true});
+      vid.addEventListener('abort', onFail, {once:true});
+      vid.setAttribute('webkit-playsinline', '');
+      vid.setAttribute('playsinline', '');
+    });
+
     // LIKE
     feed.querySelectorAll('.like-btn').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); toggleLike(btn); });
@@ -531,7 +728,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function autoProgress(item) {
     if (!item) return;
     // Stop all other videos in feed
-    feed.querySelectorAll('.vcard-vid').forEach(v => { v.pause(); v.currentTime = 0; });
+    feed.querySelectorAll('.vcard-vid').forEach(v => {
+      try { v.pause(); v.currentTime = 0; } catch(_){}
+    });
     // Close any open product popups and hide pause icons
     feed.querySelectorAll('.vcard-products.open').forEach(p => p.classList.remove('open'));
     feed.querySelectorAll('.vcard-pause-icon.show').forEach(p => p.classList.remove('show'));
@@ -540,9 +739,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const vid = item.querySelector('.vcard-vid');
     const bar = item.querySelector('.vcard-progress-bar');
     if (vid) {
-      vid.muted = isMuted;
-      vid.currentTime = 0;
-      vid.play().catch(()=>{});
+      try { vid.muted = isMuted; } catch(_){}
+      try { vid.currentTime = 0; } catch(_){}
+      try { vid.play().catch(()=>{}); } catch(_){}
       // Update mute icon for this item
       const muteBtn = item.querySelector('.vcard-mute-btn');
       if (muteBtn) updateMuteIcon(muteBtn, isMuted);
@@ -583,12 +782,77 @@ document.addEventListener('DOMContentLoaded', () => {
     showDemoOverlay();
   });
 
-  /* ---------- PRELOAD VIDEO THUMBNAILS (mobile fix) ---------- */
-  document.querySelectorAll('.mcard-video').forEach(vid => {
-    // Force first frame load on mobile by setting currentTime
-    vid.addEventListener('loadeddata', () => { vid.currentTime = 0.1; }, {once:true});
-    // Fallback: try to trigger load
-    vid.load();
+  /* ---------- CAROUSEL VIDEO ROBUSTNESS (mobile-safe) ---------- */
+  // Keeps posters visible even if the video can't load, lazy-primes videos
+  // as they approach the viewport, and pauses anything that scrolls away.
+  const safeCall = (fn) => { try { fn(); } catch(_){} };
+  const mcardVideos = document.querySelectorAll('.mcard-video');
+
+  // Always show the poster image as a background on the thumb so the card
+  // never renders as a black box — even if the video element never loads.
+  mcardVideos.forEach(vid => {
+    const thumb = vid.closest('.mcard-thumb');
+    if (thumb && vid.poster) {
+      thumb.style.backgroundImage = `url('${vid.poster}')`;
+      thumb.style.backgroundSize = 'cover';
+      thumb.style.backgroundPosition = 'center';
+    }
+    // Belt and suspenders for iOS Safari inline playback.
+    vid.setAttribute('playsinline', '');
+    vid.setAttribute('webkit-playsinline', '');
+    vid.muted = true;
+  });
+
+  function primeCarouselVideo(vid) {
+    if (vid.dataset.primed) return;
+    vid.dataset.primed = '1';
+    // Safari/iOS fix: force first frame render so the poster doesn't flash away.
+    vid.addEventListener('loadeddata', () => { safeCall(() => { vid.currentTime = 0.1; }); }, {once:true});
+    // On failure, hide the broken video and let the thumb background (poster) stand in.
+    const onFail = () => { vid.style.display = 'none'; };
+    vid.addEventListener('error', onFail, {once:true});
+    vid.addEventListener('abort', onFail, {once:true});
+    safeCall(() => vid.load());
+  }
+
+  if ('IntersectionObserver' in window && mcardVideos.length > 0) {
+    const primeObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          primeCarouselVideo(entry.target);
+          primeObs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '300px', threshold: 0.01 });
+    mcardVideos.forEach(v => primeObs.observe(v));
+
+    // Pause & reset any carousel video once it scrolls fully out of view
+    // so we don't keep a dead play stream alive as the user scrolls the page.
+    const pauseObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          safeCall(() => { entry.target.pause(); entry.target.currentTime = 0; });
+        }
+      });
+    }, { threshold: 0 });
+    mcardVideos.forEach(v => pauseObs.observe(v));
+  } else {
+    // Old browsers: just prime them all once and rely on poster fallback.
+    mcardVideos.forEach(primeCarouselVideo);
+  }
+
+  // When the tab is backgrounded, pause every carousel video to free memory.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      mcardVideos.forEach(v => safeCall(() => v.pause()));
+    }
+  });
+
+  /* ---------- MEMBER MOMENTS "VIEW ALL" -> OPEN MODAL ---------- */
+  document.querySelector('.sc-moments-section .sc-see-all')?.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    openModal(1);
   });
 
   /* ---------- DEMO PAGE LINKS ---------- */
@@ -596,6 +860,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href="#"]').forEach(link => {
     // Skip account and cart - they have their own handlers
     if (link.classList.contains('sc-account-pill') || link.classList.contains('sc-cart-item')) return;
+    // Skip the "View all" in Member Moments - it opens the modal
+    if (link.classList.contains('sc-see-all') && link.closest('.sc-moments-section')) return;
     link.addEventListener('click', e => {
       e.preventDefault();
       showDemoOverlay();
