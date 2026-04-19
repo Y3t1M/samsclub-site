@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- VIDEO DATA ---------- */
   const videos = [
     { id:1, title:"My top 3 Sam's Club staples with price per serving", author:"@george.kamel", av:"G", abg:"#f97316", bg:"#1a1a1a", src:"images/moment1.mp4", dur:"0:47", views:"2.3M", likes:187200, products:[
-      {name:"Member's Mark Chicken Pad Thai Frozen Meal",price:"$14.98",pricef:14.98,img:""},
-      {name:"Member's Mark Cauliflower Crust Cheese Pizza, 2 pk",price:"$14.98",pricef:14.98,img:""},
-      {name:"La Croix Sparkling Water Variety Pack, 24 ct",price:"$8.98",pricef:8.98,img:""}
+      {name:"Member's Mark Chicken Pad Thai Frozen Meal",price:"$14.98",pricef:14.98,img:"images/products_real/chicken-pad-thai.jpg"},
+      {name:"Member's Mark Cauliflower Crust Cheese Pizza, 2 pk",price:"$14.98",pricef:14.98,img:"images/products_real/cauliflower-pizza.jpg"},
+      {name:"La Croix Sparkling Water Variety Pack, 24 ct",price:"$8.98",pricef:8.98,img:"images/products_real/lacroix-variety.jpg"}
     ], comments:[
       {u:"LindsayP",a:"L",bg:"#f59e0b",t:"The price per serving breakdown is so helpful!",time:"2h"},
       {u:"KarenS",a:"K",bg:"#0ea5e9",t:"$13.98 for that much chicken? Going today",time:"5h"},
@@ -36,16 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
       {u:"OliviaN",a:"O",bg:"#ec4899",t:"Sam's Club app makes this even faster. Highly rec.",time:"1h"}
     ]},
     { id:2, title:"Sam's Club grocery haul - healthy snack finds!", author:"@crunchymom", av:"K", abg:"#5b6abf", bg:"#1a1a1a", src:"images/moment2.mp4", dur:"0:32", views:"1.8M", likes:142100, products:[
-      {name:"One Mighty Mill Stone Milled Organic Sourdough",price:"$6.98",pricef:6.98,img:""},
-      {name:"Spindrift Sparkling Water Variety Pack, 30 ct",price:"$15.98",pricef:15.98,img:""},
-      {name:"Naturally More Organic Creamy Peanut Butter, 2 pk",price:"$13.98",pricef:13.98,img:""},
-      {name:"Goodles Cheddy Mac & Shella Good Mac & Cheese, 8 pk",price:"$11.98",pricef:11.98,img:""},
-      {name:"Sun Date Organic Medjool Dates, 2 lbs",price:"$9.98",pricef:9.98,img:""},
-      {name:"Tropical Fields Organic Crispy Coconut Rolls",price:"$9.98",pricef:9.98,img:""},
-      {name:"Solely Organic Fruit Jerky Variety, 16 pk",price:"$13.98",pricef:13.98,img:""},
-      {name:"Jackson's Sweet Potato Chips, Sea Salt, 4 pk",price:"$8.98",pricef:8.98,img:""},
-      {name:"Simple Mills Almond Flour Crackers, Sea Salt, 2 pk",price:"$10.98",pricef:10.98,img:""},
-      {name:"Poppi Cranberry Fizz Prebiotic Soda, 15 pk",price:"$21.98",pricef:21.98,img:""}
+      {name:"One Mighty Mill Stone Milled Organic Sourdough",price:"$6.98",pricef:6.98,img:"images/products_real/sourdough-bread.jpg"},
+      {name:"Spindrift Sparkling Water Variety Pack, 30 ct",price:"$15.98",pricef:15.98,img:"images/products_real/spindrift.jpg"},
+      {name:"Naturally More Organic Creamy Peanut Butter, 2 pk",price:"$13.98",pricef:13.98,img:"images/products_real/peanut-butter-natural.jpg"},
+      {name:"Goodles Cheddy Mac & Shella Good Mac & Cheese, 8 pk",price:"$11.98",pricef:11.98,img:"images/products_real/goodles.jpg"},
+      {name:"Sun Date Organic Medjool Dates, 2 lbs",price:"$9.98",pricef:9.98,img:"images/products_real/medjool-dates.jpg"},
+      {name:"Tropical Fields Organic Crispy Coconut Rolls",price:"$9.98",pricef:9.98,img:"images/products_real/coconut-rolls.jpg"},
+      {name:"Solely Organic Fruit Jerky Variety, 16 pk",price:"$13.98",pricef:13.98,img:"images/products_real/solely-jerky.jpg"},
+      {name:"Jackson's Sweet Potato Chips, Sea Salt, 4 pk",price:"$8.98",pricef:8.98,img:"images/products_real/jacksons-chips.jpg"},
+      {name:"Simple Mills Almond Flour Crackers, Sea Salt, 2 pk",price:"$10.98",pricef:10.98,img:"images/products_real/simple-mills-crackers.jpg"},
+      {name:"Poppi Cranberry Fizz Prebiotic Soda, 15 pk",price:"$21.98",pricef:21.98,img:"images/products_real/poppi-soda.jpg"}
     ], comments:[
       {u:"SarahL",a:"S",bg:"#f43f5e",t:"The Spindrift variety pack is amazing!",time:"2h"},
       {u:"MarkD",a:"M",bg:"#3b82f6",t:"Goodles is the best mac & cheese we've tried",time:"3h"},
@@ -71,14 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
       {u:"LaurenF",a:"L",bg:"#f97316",t:"Perfect timing, meal planning tonight",time:"45m"}
     ]},
     { id:3, title:"Here's everything I get at Sam's Club", author:"@caseykelly", av:"C", abg:"#3b82f6", bg:"#1a1a1a", src:"images/moment3.mp4", dur:"0:58", views:"3.1M", likes:267500, products:[
-      {name:"Grass-Fed Ground Beef, 4 lb",price:"$19.98",pricef:19.98,img:""},
-      {name:"Member's Mark Chicken Breast, Boneless Skinless",price:"$13.98",pricef:13.98,img:""},
-      {name:"Simply Nature Organic White Corn Tortillas",price:"$5.98",pricef:5.98,img:""},
-      {name:"Blue Diamond Oven Roasted Almonds, Lightly Salted",price:"$11.98",pricef:11.98,img:""},
-      {name:"Organic Valley Stringles String Cheese, 24 ct",price:"$12.98",pricef:12.98,img:""},
-      {name:"Member's Mark Organic Peanut Butter, 40 oz",price:"$9.98",pricef:9.98,img:""},
-      {name:"Organic Romaine Hearts, 6 ct",price:"$3.98",pricef:3.98,img:""},
-      {name:"Member's Mark Pink Himalayan Salt Grinder + Peppercorn",price:"$10.98",pricef:10.98,img:""}
+      {name:"Grass-Fed Ground Beef, 4 lb",price:"$19.98",pricef:19.98,img:"images/products_real/ground-beef-grass.jpg"},
+      {name:"Member's Mark Chicken Breast, Boneless Skinless",price:"$13.98",pricef:13.98,img:"images/products_real/chicken-breast.jpg"},
+      {name:"Simply Nature Organic White Corn Tortillas",price:"$5.98",pricef:5.98,img:"images/products_real/corn-tortillas.jpg"},
+      {name:"Blue Diamond Oven Roasted Almonds, Lightly Salted",price:"$11.98",pricef:11.98,img:"images/products_real/blue-diamond-almonds.jpg"},
+      {name:"Organic Valley Stringles String Cheese, 24 ct",price:"$12.98",pricef:12.98,img:"images/products_real/string-cheese.jpg"},
+      {name:"Member's Mark Organic Peanut Butter, 40 oz",price:"$9.98",pricef:9.98,img:"images/products_real/peanut-butter-organic.jpg"},
+      {name:"Organic Romaine Hearts, 6 ct",price:"$3.98",pricef:3.98,img:"images/products_real/romaine-hearts.jpg"},
+      {name:"Member's Mark Pink Himalayan Salt Grinder + Peppercorn",price:"$10.98",pricef:10.98,img:"images/products_real/salt-grinder.jpg"}
     ], comments:[
       {u:"JennyW",a:"J",bg:"#5b6abf",t:"The romaine and broccoli deal is unbeatable",time:"1h"},
       {u:"DaveP",a:"D",bg:"#fb923c",t:"That grass-fed beef is such a good price",time:"2h"},
@@ -104,14 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
       {u:"AmandaW",a:"A",bg:"#0ea5e9",t:"The bakery section is actually next level too",time:"5h"}
     ]},
     { id:4, title:"Sam's Club new active wear for men", author:"@samsclubmama", av:"M", abg:"#22c55e", bg:"#1a1a1a", src:"images/moment4.mp4", dur:"1:05", views:"1.2M", likes:108400, products:[
-      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Olive",price:"$14.98",pricef:14.98,img:""},
-      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Navy",price:"$14.98",pricef:14.98,img:""},
-      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Cream",price:"$14.98",pricef:14.98,img:""},
-      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Black",price:"$14.98",pricef:14.98,img:""},
-      {name:"Outdoor Voices Athletic Shorts, Men's Tan",price:"$16.98",pricef:16.98,img:""},
-      {name:"Outdoor Voices Athletic Shorts, Men's Navy",price:"$16.98",pricef:16.98,img:""},
-      {name:"Outdoor Voices Athletic Shorts, Men's Green",price:"$16.98",pricef:16.98,img:""},
-      {name:"Outdoor Voices Zip-Pocket Training Pants, Men's",price:"$22.98",pricef:22.98,img:""}
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Olive",price:"$14.98",pricef:14.98,img:"images/products_real/tee-olive.jpg"},
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Navy",price:"$14.98",pricef:14.98,img:"images/products_real/tee-navy.jpg"},
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Cream",price:"$14.98",pricef:14.98,img:"images/products_real/tee-cream.jpg"},
+      {name:"Outdoor Voices CloudKnit Crew Tee, Men's Black",price:"$14.98",pricef:14.98,img:"images/products_real/tee-black.jpg"},
+      {name:"Outdoor Voices Athletic Shorts, Men's Tan",price:"$16.98",pricef:16.98,img:"images/products_real/shorts-tan.jpg"},
+      {name:"Outdoor Voices Athletic Shorts, Men's Navy",price:"$16.98",pricef:16.98,img:"images/products_real/shorts-navy.jpg"},
+      {name:"Outdoor Voices Athletic Shorts, Men's Green",price:"$16.98",pricef:16.98,img:"images/products_real/shorts-green.jpg"},
+      {name:"Outdoor Voices Zip-Pocket Training Pants, Men's",price:"$22.98",pricef:22.98,img:"images/products_real/training-pants.jpg"}
     ], comments:[
       {u:"ChrisB",a:"C",bg:"#a855f7",t:"Those CloudKnit tees look super soft!",time:"30m"},
       {u:"TinaM",a:"T",bg:"#ec4899",t:"What size did you grab? Do they run big?",time:"1h"},
@@ -185,12 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
       {u:"HannahR",a:"H",bg:"#3b82f6",t:"Sam's Club treating their creators right",time:"1h"}
     ]},
     { id:7, title:"Sam's Club haul - paper towels, meat & more", author:"@sams.jen", av:"S", abg:"#fb923c", bg:"#1a1a1a", src:"images/moment7.mp4", dur:"1:15", views:"2.7M", likes:198600, products:[
-      {name:"Member's Mark Ultra Strong Paper Towels, 15 mega rolls, 2200+ sheets",price:"$18.98",pricef:18.98,img:""},
-      {name:"Ground Beef 80/20, 5 lb Value Pack",price:"$22.98",pricef:22.98,img:""},
-      {name:"Member's Mark Large White Eggs, 5 doz",price:"$12.78",pricef:12.78,img:""},
-      {name:"Member's Mark Vitamin D Whole Milk, 1 gal",price:"$3.98",pricef:3.98,img:""},
-      {name:"Member's Mark Woven Wicker Laundry Hamper with Liner",price:"$49.98",pricef:49.98,img:""},
-      {name:"Member's Mark Heavy Duty Storage Tote, Large",price:"$24.98",pricef:24.98,img:""}
+      {name:"Member's Mark Ultra Strong Paper Towels, 15 mega rolls, 2200+ sheets",price:"$18.98",pricef:18.98,img:"images/products_real/paper-towels.jpg"},
+      {name:"Ground Beef 80/20, 5 lb Value Pack",price:"$22.98",pricef:22.98,img:"images/products_real/ground-beef-grass.jpg"},
+      {name:"Member's Mark Large White Eggs, 5 doz",price:"$12.78",pricef:12.78,img:"images/products_real/eggs-dozen.jpg"},
+      {name:"Member's Mark Vitamin D Whole Milk, 1 gal",price:"$3.98",pricef:3.98,img:"images/products_real/whole-milk.jpg"},
+      {name:"Member's Mark Woven Wicker Laundry Hamper with Liner",price:"$49.98",pricef:49.98,img:"images/products_real/wicker-hamper.jpg"},
+      {name:"Member's Mark Heavy Duty Storage Tote, Large",price:"$24.98",pricef:24.98,img:"images/products_real/storage-tote.jpg"}
     ], comments:[
       {u:"PaulC",a:"P",bg:"#3b82f6",t:"Those paper towels are the best deal in the store",time:"20m"},
       {u:"EmmaK",a:"E",bg:"#ec4899",t:"My family would LOVE this haul",time:"1h"},
