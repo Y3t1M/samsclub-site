@@ -1354,6 +1354,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Header location pill dropdown
+  const locPill = document.getElementById('scLocationPill');
+  const locDropdown = document.getElementById('scLocationDropdown');
+  function renderLocDropdown() {
+    locDropdown.innerHTML = `
+      <div class="sc-loc-dropdown-head">Select Your Club</div>
+      ${clubLocations.map((c, i) => `
+        <button class="sc-loc-item${c.num === currentClub.num ? ' active' : ''}" data-idx="${i}" role="option">
+          <div><strong>${c.name} ${c.num}</strong><span>${c.addr}</span></div>
+          ${c.num === currentClub.num ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0071dc" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+        </button>
+      `).join('')}
+    `;
+    locDropdown.querySelectorAll('.sc-loc-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentClub = clubLocations[+btn.dataset.idx];
+        updateClubDisplay();
+        locDropdown.classList.remove('open');
+        locPill.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  locPill?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = locDropdown.classList.toggle('open');
+    locPill.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) renderLocDropdown();
+  });
+  document.addEventListener('click', (e) => {
+    if (!locDropdown.contains(e.target) && e.target !== locPill && !locPill?.contains(e.target)) {
+      locDropdown?.classList.remove('open');
+      locPill?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
   function renderOrders() {
     const container = accountOverlay.querySelector('#tab-orders');
     if (orders.length === 0) {
