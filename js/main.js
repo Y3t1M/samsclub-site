@@ -996,7 +996,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#0071dc"/><polygon points="10,7 17,12 10,17" fill="white"/></svg>
         </div>
         <h2>This is just a demo</h2>
-        <p>This page is a concept prototype. Head back and check out <strong>Member Moments</strong> to see the full experience!</p>
+        <p>This page is a concept prototype. Head back and check out <strong>Members Moments</strong> to see the full experience!</p>
         <button class="demo-overlay-btn" onclick="this.closest('.demo-overlay').remove()">Back to Demo</button>
       </div>
     `;
@@ -1495,7 +1495,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const item = btn.closest('.vfeed-item');
         const vid = item ? videos.find(v => v.id === +item.dataset.id) : null;
-        const text = vid ? `Check out "${vid.title}" by ${vid.author} on Sam's Club Member Moments!` : 'Check out Sam\'s Club Member Moments!';
+        const text = vid ? `Check out "${vid.title}" by ${vid.author} on Sam's Club Members Moments!` : 'Check out Sam\'s Club Members Moments!';
         navigator.clipboard.writeText(text).then(() => {
           const sp = btn.querySelector('span');
           sp.textContent = 'Copied!';
